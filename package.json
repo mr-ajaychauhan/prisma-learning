@@ -1,22 +1,23 @@
 {
-  "name": "rr-backend",
+  "name": "prisma-learning",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon script.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reviewround/rr-backend.git"
+    "url": "git+https://github.com/mr-ajaychauhan/prisma-learning.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/reviewround/rr-backend/issues"
+    "url": "https://github.com/mr-ajaychauhan/prisma-learning/issues"
   },
-  "homepage": "https://github.com/reviewround/rr-backend#readme",
+  "homepage": "https://github.com/mr-ajaychauhan/prisma-learning#readme",
   "dependencies": {
     "@prisma/client": "^4.13.0",
     "@types/node": "^20.1.0",
