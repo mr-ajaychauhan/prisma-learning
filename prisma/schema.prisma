@@ -20,6 +20,7 @@ model User {
   writtenPosts   Post[]          @relation("writtenPosts")
   favoritePosts  Post[]          @relation("FavoritePosts")
   UserPreference UserPreference?
+  role           Role            @default(BASIC)
 
   //block label attriubute
   // if  you use this it work like same age and name or not use repeated 
@@ -38,7 +39,7 @@ model UserPreference {
 }
 
 model Post {
-  // id            String     @id @default(uuid())
+  id            String     @id @default(uuid())
   title         String
   averageRating Float
   createdAt     DateTime   @default(now())
@@ -53,7 +54,9 @@ model Post {
 
   //composit id auto genrate 
 
-  @@id([title, authorId])
+  //currently not in use
+
+  // @@id([title, authorId])
 }
 
 //many to many relationship through category
@@ -62,4 +65,9 @@ model Category {
   id    String @id @default(uuid())
   name  String @unique
   posts Post[]
+}
+
+enum Role {
+  BASIC
+  ADMIN
 }
