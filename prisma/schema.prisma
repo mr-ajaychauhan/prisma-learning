@@ -12,15 +12,15 @@ datasource db {
 
 //user and Post or one to many relationship 
 model User {
-  id             String          @id @default(uuid())
-  age            Int
-  name           String
-  email          String          @unique
-  isAdmin        Boolean
-  writtenPosts   Post[]          @relation("writtenPosts")
-  favoritePosts  Post[]          @relation("FavoritePosts")
-  UserPreference UserPreference?
-  role           Role            @default(BASIC)
+  id               String          @id @default(uuid())
+  age              Int
+  name             String
+  email            String          @unique
+  writtenPosts     Post[]          @relation("writtenPosts")
+  favoritePosts    Post[]          @relation("FavoritePosts")
+  role             Role            @default(BASIC)
+  UserPreference   UserPreference? @relation(fields: [userPreferenceId], references: [id])
+  userPreferenceId String?         @unique
 
   //block label attriubute
   // if  you use this it work like same age and name or not use repeated 
@@ -34,8 +34,7 @@ model User {
 model UserPreference {
   id           String  @id @default(uuid())
   emailUpdates Boolean
-  user         User    @relation(fields: [userId], references: [id])
-  userId       String  @unique
+  user         User?
 }
 
 model Post {
