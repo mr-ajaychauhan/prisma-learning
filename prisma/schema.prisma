@@ -33,7 +33,7 @@ model Post {
   categories    Category[]
 }
 
-//many to many relationship
+//many to many relationship through category
 
 model Category {
   id    String @id @default(uuid())
